@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My profile page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');</style>
+</head>
+<body onload="hide()">
+  <div class="container">
+    <div>
+      <div>
+        <h1>Hello I'm Mario</h1>
+        <img id="profile_image" src="https://i.seadn.io/gae/Ij2ZRQUfV3IlNkps3f-PiO-0v9XxdktvOXco7tOolV04zFZSgt73mRv8GgSmDCBeWtaMsNOtnSjrDvZDfCMUFjRqG-_cq9Hzr1b6?auto=format&w=1920" alt="cryptomories#9959" height="300px" length="300px">
+      </div>
+      <h2>Hello! I'm Mario, my main interests are Web3 and entrepreneurship. Feel free to contact me!</h2>
+      <div id="canvas_game"></div>
+      <div id="hidden">
+        <button id="play_button" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Jump</button>
+      </div>
+      <div>
+        <button id="play_button" onclick="startGame(); hide()"  >Play a game</button>
+      </div>
+    </div>
+    <div>
+      <button id="follow_me">Contact me</button>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a href="https://twitter.com/mszjar" target="_blank">
+            <img id="twitter-logo" src="https://seeklogo.com/images/T/twitter-icon-square-logo-108D17D373-seeklogo.com.png" alt="twitter-logo" height="30px" length="30px">
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/mszjar" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github-logo" height="30px" length="30px">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/mszjar/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="linkedin-logo" height="30px" length="30px">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    <div id="data">
+      <script type="text/javascript">
+        var xmlhttp = new XMLHttpRequest();
+        var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4  &&  this.status == 200) {
+            var json = JSON.parse(this.responseText);
+            parseJson(json);
+          }
+        };
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        function parseJson(json) {
+          var usdValue = "<b>Bitcoin price: " +"$" + json["bpi"]["USD"]["rate"]  + "</b>";
+          var time = json["time"]["updated"];
+
+          document.getElementById("data").innerHTML = usdValue +
+            "<br /><br />" + time
+        }
+      </script>
+    </div>
+  <div>
+    <script>
+
+      var myGamePiece;
+      var myObstacles = [];
+      var myScore;
+
+      function startGame() {
+          myGamePiece = new component(25, 25, "rebeccapurple", 10, 120);
+          myGamePiece.gravity = 0.05;
+          myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+          myGameArea.start();
+      }
+
+      var myGameArea = {
+          canvas : document.createElement("canvas"),
+          start : function() {
+              this.canvas.width = 720;
+              this.canvas.height = 320;
+              this.context = this.canvas.getContext("2d");
+              console.log(document.body.childNodes[0]);
+              const canvasPosition = document.getElementById("canvas_game")
+              canvasPosition.insertBefore(this.canvas, canvasPosition.childNodes[0]);
+              this.frameNo = 0;
+              this.interval = setInterval(updateGameArea, 15);
+              },
+          clear : function() {
+              this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          }
+      }
+
+      function component(width, height, color, x, y, type) {
+          this.type = type;
+          this.score = 0;
+          this.width = width;
+          this.height = height;
+          this.speedX = 0;
+          this.speedY = 0;
+          this.x = x;
+          this.y = y;
+          this.gravity = 0;
+          this.gravitySpeed = 0;
+          this.update = function() {
+              ctx = myGameArea.context;
+              if (this.type == "text") {
+                  ctx.font = this.width + " " + this.height;
+                  ctx.fillStyle = color;
+                  ctx.fillText(this.text, this.x, this.y);
+              } else {
+                  ctx.fillStyle = color;
+                  ctx.fillRect(this.x, this.y, this.width, this.height);
+              }
+          }
+          this.newPos = function() {
+              this.gravitySpeed += this.gravity;
+              this.x += this.speedX;
+              this.y += this.speedY + this.gravitySpeed;
+              this.hitBottom();
+          }
+          this.hitBottom = function() {
+              var rockbottom = myGameArea.canvas.height - this.height;
+              if (this.y > rockbottom) {
+                  this.y = rockbottom;
+                  this.gravitySpeed = 0;
+              }
+          }
+          this.crashWith = function(otherobj) {
+              var myleft = this.x;
+              var myright = this.x + (this.width);
+              var mytop = this.y;
+              var mybottom = this.y + (this.height);
+              var otherleft = otherobj.x;
+              var otherright = otherobj.x + (otherobj.width);
+              var othertop = otherobj.y;
+              var otherbottom = otherobj.y + (otherobj.height);
+              var crash = true;
+              if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+                  crash = false;
+              }
+              return crash;
+          }
+      }
+
+      function updateGameArea() {
+          var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+          for (i = 0; i < myObstacles.length; i += 1) {
+              if (myGamePiece.crashWith(myObstacles[i])) {
+                  return;
+              }
+          }
+          myGameArea.clear();
+          myGameArea.frameNo += 1;
+          if (myGameArea.frameNo == 1 || everyinterval(150)) {
+              x = myGameArea.canvas.width;
+              minHeight = 20;
+              maxHeight = 200;
+              height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+              minGap = 70;
+              maxGap = 200;
+              gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+              myObstacles.push(new component(15, height, "salmon", x, 0));
+              myObstacles.push(new component(15, x - height - gap, "salmon", x, height + gap));
+          }
+          for (i = 0; i < myObstacles.length; i += 1) {
+              myObstacles[i].x += -1;
+              myObstacles[i].update();
+          }
+          myScore.text="SCORE: " + myGameArea.frameNo;
+          myScore.update();
+          myGamePiece.newPos();
+          myGamePiece.update();
+      }
+
+      function everyinterval(n) {
+          if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+          return false;
+      }
+
+      function accelerate(n) {
+          myGamePiece.gravity = n;
+      }
+      </script>
+  </div>
+  <div>
+    <script>
+      function hide() {
+        var x = document.getElementById("hidden");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      </script>
+  </div>
+</body>
+</html>

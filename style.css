@@ -1,0 +1,155 @@
+h1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.text {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+canvas {
+  border:1px solid #fafafa;
+  background-color: #ffffffbe;
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 2px 2px 4px #888888;
+}
+
+#logo {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: block;
+}
+
+#play_button {
+  width: 200px;
+  height: 50px;
+  background-color: rebeccapurple;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+  font-style: bold;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  border-color: white;
+  border: 4px;
+  padding-bottom: 5px;
+  box-shadow: 2px 2px 4px #888888;
+
+}
+
+#follow_me {
+  width: 100px;
+  height: 25px;
+  background-color: rgb(156, 124, 189);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  font-style: bold;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  border-color: white;
+  border: 4px;
+  padding-bottom: 5px;
+  box-shadow: 2px 2px 4px #888888;
+}
+
+script {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#profile_image {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 2px 4px #888888;
+}
+
+ul {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+}
+
+li {
+  justify-content: center;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+}
+
+#twitter-logo {
+  border-radius: 50%;
+}
+
+div {
+  padding-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#data {
+  width: 400px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 10px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='2560' height='1440' preserveAspectRatio='none' viewBox='0 0 2560 1440'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1041%26quot%3b)' fill='none'%3e%3crect width='2560' height='1440' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M2081.5 762.21 a450.35 450.35 0 1 0 900.7 0 a450.35 450.35 0 1 0 -900.7 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-256.46 824.76 a386.05 386.05 0 1 0 772.1 0 a386.05 386.05 0 1 0 -772.1 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M-77.88 1120.24 a463.07 463.07 0 1 0 926.14 0 a463.07 463.07 0 1 0 -926.14 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1015.79 369.84 a255.75 255.75 0 1 0 511.5 0 a255.75 255.75 0 1 0 -511.5 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1245.34 589.58 a379 379 0 1 0 758 0 a379 379 0 1 0 -758 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1512.15 1111.91 a288.03 288.03 0 1 0 576.06 0 a288.03 288.03 0 1 0 -576.06 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M856.47 1074.54 a294.8 294.8 0 1 0 589.6 0 a294.8 294.8 0 1 0 -589.6 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M893.09 75.22 a339.7 339.7 0 1 0 679.4 0 a339.7 339.7 0 1 0 -679.4 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-247.54 1059.7 a301.68 301.68 0 1 0 603.36 0 a301.68 301.68 0 1 0 -603.36 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1271.8 296.57 a476.74 476.74 0 1 0 953.48 0 a476.74 476.74 0 1 0 -953.48 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1671.6 630.76 a352.85 352.85 0 1 0 705.7 0 a352.85 352.85 0 1 0 -705.7 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M944.08 1058.55 a468.8 468.8 0 1 0 937.6 0 a468.8 468.8 0 1 0 -937.6 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M2023.22 1047.63 a430.49 430.49 0 1 0 860.98 0 a430.49 430.49 0 1 0 -860.98 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-108.91 1013.75 a422.08 422.08 0 1 0 844.16 0 a422.08 422.08 0 1 0 -844.16 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1262.2 357.34 a269.67 269.67 0 1 0 539.34 0 a269.67 269.67 0 1 0 -539.34 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1161.63 469.26 a461.53 461.53 0 1 0 923.06 0 a461.53 461.53 0 1 0 -923.06 0z' fill='rgba(111%2c 163%2c 195%2c 0.21)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1041'%3e%3crect width='2560' height='1440' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+}
+
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .container {
+    width: 700px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .container {
+    width: 300px;
+  }
+}
